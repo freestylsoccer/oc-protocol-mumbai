@@ -57,7 +57,7 @@ task('verify:general', 'Verify contracts at Etherscan')
     const lendingPoolProxy = await getProxy(lendingPoolAddress);
     const lendingPoolConfiguratorProxy = await getProxy(lendingPoolConfiguratorAddress);
     const lendingPoolCollateralManagerProxy = await getProxy(lendingPoolCollateralManagerAddress);
-
+    /*
     if (all) {
       const lendingPoolImplAddress = getParamPerNetwork(LendingPool, network);
       const lendingPoolImpl = notFalsyOrZeroAddress(lendingPoolImplAddress)
@@ -134,6 +134,7 @@ task('verify:general', 'Verify contracts at Etherscan')
         await getWrappedNativeTokenAddress(poolConfig),
       ]);
     }
+    */
     // Lending Pool proxy
     console.log('\n- Verifying  Lending Pool Proxy...\n');
     await verifyContract(eContractid.InitializableAdminUpgradeabilityProxy, lendingPoolProxy, [

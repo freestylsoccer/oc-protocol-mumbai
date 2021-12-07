@@ -27,12 +27,12 @@ makeSuite('AToken: Permit', (testEnv: TestEnv) => {
   });
 
   it('Get aDAI for tests', async () => {
-    const { dai, pool, deployer } = testEnv;
+    const { dai, aDai, pool, deployer } = testEnv;
 
     await dai.mint(parseEther('20000'));
     await dai.approve(pool.address, parseEther('20000'));
-
     await pool.deposit(dai.address, parseEther('20000'), deployer.address, 0);
+    console.log(await aDai.balanceOf(deployer.address));
   });
 
   it('Reverts submitting a permit with 0 expiration', async () => {
